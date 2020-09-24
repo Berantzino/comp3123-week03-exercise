@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
         res.end(`{"error": "${http.STATUS_CODES[405]}"}`)
     } else {
         if (req.url === '/') {
-            //TODO - Display message "<h1>Welcome to Lab Exercise 03</h1>"
+            res.end("<h1>Welcome to Lab Exercise 03</h1>")
         }
 
         if (req.url === '/employee') {
@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
         if (req.url === '/employee/totalsalary') {
             //TODO - Display Sum of all employees salary in given JSON format 
             //e.g. { "total_salary" : 100 }
-          
+        } 
     }
     res.end(`{"error": "${http.STATUS_CODES[404]}"}`)
 })
