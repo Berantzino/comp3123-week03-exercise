@@ -1,5 +1,5 @@
 var http = require("http");
-//TODO - Use Employee Module here
+var employees = require("./Employee")
 console.log("Lab 03 -  NodeJs");
 
 //TODO - Fix any errors you found working with lab exercise
@@ -13,11 +13,14 @@ const server = http.createServer((req, res) => {
         res.end(`{"error": "${http.STATUS_CODES[405]}"}`)
     } else {
         if (req.url === '/') {
-            res.end("<h1>Welcome to Lab Exercise 03</h1>")
+            res.write("<h1>Welcome to Lab Exercise 03</h1>")
         }
 
         if (req.url === '/employee') {
-            //TODO - Display all details for employees in JSON format
+            // Sets statusCode to 200 OK and adds content type of json
+            res.writeHead(200, {"Content-Type": "application/json"})
+            //converts object to json
+            res.write(JSON.stringify(employees))
         }
 
         if (req.url === '/employee/names') {
@@ -28,7 +31,8 @@ const server = http.createServer((req, res) => {
         if (req.url === '/employee/totalsalary') {
             //TODO - Display Sum of all employees salary in given JSON format 
             //e.g. { "total_salary" : 100 }
-        } 
+        }
+        res.end()
     }
     res.end(`{"error": "${http.STATUS_CODES[404]}"}`)
 })
