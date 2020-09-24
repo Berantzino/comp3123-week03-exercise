@@ -1,5 +1,5 @@
 var http = require("http");
-var employees = require("./Employee")
+var employee = require("./Employee")
 console.log("Lab 03 -  NodeJs");
 
 //TODO - Fix any errors you found working with lab exercise
@@ -20,12 +20,15 @@ const server = http.createServer((req, res) => {
             // Sets statusCode to 200 OK and adds content type of json
             res.writeHead(200, {"Content-Type": "application/json"})
             //converts object to json
-            res.write(JSON.stringify(employees))
+            res.write(JSON.stringify(employee))
         }
 
         if (req.url === '/employee/names') {
-            //TODO - Display only all employees {first name + lastname} in Ascending order in JSON Array
-            //e.g. [ "Ash Lee", "Mac Mohan", "Pritesh Patel"]
+            res.writeHead(200, {"Content-Type": "application/json"})
+            res.write(JSON.stringify(
+                employee.employees.map((e, index) =>
+                    `${e.firstName} ${e.lastName}`).sort()
+            ))
         }
 
         if (req.url === '/employee/totalsalary') {
