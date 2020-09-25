@@ -1,5 +1,7 @@
 var http = require("http");
 var employee = require("./Employee")
+var url = require("url")
+var querystring = require("querystring")
 console.log("Lab 03 -  NodeJs");
 
 //Define Server Port
@@ -43,6 +45,14 @@ const server = http.createServer((req, res) => {
 
             res.writeHead(200, {"Content-Type": "application/json"})
             res.write(JSON.stringify({'total_salary': total_salary}))
+        }
+
+        if (req.url.match(/\/employee\?uid=\d/i)) {
+            let employeeId = querystring.parse(url.parse(req.url).query).uid
+            let employeeWithId = employees.filter((e) => e.id == employeeId)
+
+            res.writeHead(200, {"Content-Type": "application/json"})
+            res.write(JSON.stringify(employeeWithId[0]))
         }
         res.end()
     }
