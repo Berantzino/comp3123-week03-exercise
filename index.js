@@ -2,8 +2,6 @@ var http = require("http");
 var employee = require("./Employee")
 console.log("Lab 03 -  NodeJs");
 
-//TODO - Fix any errors you found working with lab exercise
-
 //Define Server Port
 const port = process.env.PORT || 8081
 
@@ -34,6 +32,12 @@ const server = http.createServer((req, res) => {
         if (req.url === '/employee/totalsalary') {
             //TODO - Display Sum of all employees salary in given JSON format 
             //e.g. { "total_salary" : 100 }
+            let total_salary = employee.employees
+                .map((e) => e.Salary)
+                .reduce((a, b) => a + b, 0)
+
+            res.writeHead(200, {"Content-Type": "application/json"})
+            res.write(JSON.stringify({'total_salary': total_salary}))
         }
         res.end()
     }
