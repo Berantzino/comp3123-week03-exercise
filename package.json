@@ -7,6 +7,10 @@
     "test": "echo \"Warning: No tests creted ye.\"",
     "dev": "nodemon ./index.js localhost 8081"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Berantzino/comp3123-week03-exercise.git"
+  },
   "keywords": [
     "sample",
     "js",
@@ -28,6 +32,9 @@
   },
   "homepage": "https://nodejs.org/",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Berantzino/comp3123-week03-exercise/issues"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
