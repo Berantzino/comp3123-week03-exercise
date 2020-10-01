@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Berantzino/comp3123-week03-exercise.svg?branch=master)](https://travis-ci.org/Berantzino/comp3123-week03-exercise)
+
 # Class Exercise node Project
 
 - Complete given class exercise
