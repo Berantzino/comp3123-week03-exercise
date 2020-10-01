@@ -4,7 +4,7 @@
   "description": "Lab 03",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Warning: No tests creted ye.\"",
+    "test": "echo \"Warning: No tests created ye.\"",
     "dev": "nodemon ./index.js localhost 8081"
   },
   "repository": {
